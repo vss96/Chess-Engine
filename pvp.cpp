@@ -19,6 +19,7 @@ class cboard
   u64 wboard;
   u64 bboard;
   u64 tboard;
+  u64 pieces[64];
   public :
   	cboard()
   	{            
@@ -34,7 +35,14 @@ class cboard
   		BBishops  =0000000000000000000000000000000000000000000000000000000000100100;
   		BKing     =0000000000000000000000000000000000000000000000000000000000001000;
   		BQueen    =0000000000000000000000000000000000000000000000000000000000010000;
-	  }
+		int i ;
+		u64 x;
+		for(i=0;i<64;i++)
+		{	
+	        x=pow(2,i);
+		pieces[63-i]=  x;  // Each index has a bitboard for piece (ie) a1 ,b1 , c1 and so on 
+	        }
+	}	
 	u64 total_board()
 	{
 		
