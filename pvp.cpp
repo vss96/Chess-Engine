@@ -23,6 +23,8 @@ class cboard
   public :
   	cboard()
   	{            
+  	
+  	//NOTE: We could also create different values for every piece to make it simple while printing the board
   		WKnights  =0100001000000000000000000000000000000000000000000000000000000000;
   		WPawns    =0000000011111111000000000000000000000000000000000000000000000000;
   		WRooks    =1000000100000000000000000000000000000000000000000000000000000000;
@@ -51,7 +53,24 @@ class cboard
 		tboard=wboard|bboard;
 	}
 	
-}
+	u64 pawn_moves()
+	{
+		//suppose we are moving pawn a2. White pawn. 
+		WPawns=WPawns<<8;   //Number of shifting positions will vary with the pawn taken 
+		u64 oroperand=10000000000000000000000000000000;
+		u64 oropshift=oroperand>>8;
+		WPawns= WPawns | oropshift;
+		u64 andoper; 
+		andoper=~oroperand;
+		WPawns=WPawns & andoper; 
+		WPawns=WPawns>>8;
+	
+	}
+	
+	
+	
+	
+};
 
 int main()
 {
