@@ -26,19 +26,7 @@ class cboard
   	
   	//NOTE: We could also create different values for every piece to make it simple while printing the board
   		WKnights  =4755801206503243776;//0100001000000000000000000000000000000000000000000000000000000000
-
-
-
-
-
-
-
-
-
-
-
-
-  		WPawns    =71776119061217280;  //0000000011111111000000000000000000000000000000000000000000000000
+                WPawns    =71776119061217280;  //0000000011111111000000000000000000000000000000000000000000000000
   		WRooks    =9295429630892703744;//1000000100000000000000000000000000000000000000000000000000000000
   		WBishops  =2594073385365405696;//0010010000000000000000000000000000000000000000000000000000000000
   		WKing     =576460752303423488; //0000100000000000000000000000000000000000000000000000000000000000
@@ -57,7 +45,7 @@ class cboard
 		pieces[63-i]=  x;  // Each index has a bitboard for piece (ie) a1 ,b1 , c1 and so on 
 	        }
 	}	
-	u64 total_board()
+	 total_board()
 	{
 		
 		wboard=WKnights|WPawns|WRooks|WBishops|WKing|WQueen;
@@ -65,20 +53,54 @@ class cboard
 		tboard=wboard|bboard;
 	}
 	
-	u64 pawn_moves()
+	 pawn_moves(int rank1,char file1,int rank2,char file2,char type)
 	{
-		//suppose we are moving pawn a2. White pawn. 
-		WPawns=WPawns<<8;   //Number of shifting positions will vary with the pawn taken 
-		u64 oroperand=10000000000000000000000000000000;
-		u64 oropshift=oroperand>>8;
-		WPawns= WPawns | oropshift;
-		u64 andoper; 
-		andoper=~oroperand;
-		WPawns=WPawns & andoper; 
-		WPawns=WPawns>>8;
-	
-	}
-	
+	   //Number of shifting positions will vary with the pawn taken 
+                int index1=(rank1-1)*8 + (file1-96);//ascii of a is 97
+		int index2=(rank2-1)*8 + (file2-96);
+		 if(type='w' || type='W')
+		 {	if((rank1==2 && rank2 >4 || rank2-rank1 > 1 )&& ((file1-file2!=0)&&Wpawns|bboard==0))
+		{ cout<<"Invalid move"<<endl;
+		   return 0;
+		}
+		 }
+		 else if(type='b' || type='B')
+		 { if((rank1=7 && rank2<5 || rank1-rank2 >1 ) && ((file1-file2!=0)&&Bpawns|wboard==0))
+		   {	 cout<<"Invalid move"<<endl;
+	                  return 0;
+		   }
+		 }
+		 else
+		 { cout<<"Invalid type "<<endl;
+		   return 1;
+		 }
+		u64 oroperand=pieces[index1];
+		u64 oropshift=pieces[index2];
+		 if(type='w'||type='W')
+		  {
+	           WPawns= WPawns^oroperand;
+		   WPawns= WPawns|oropshift;
+			 if(WPawns|bboard!=0)       //If a black piece is removed this block removes that piece from the bitboard
+			 {
+		          BPawns=BPawns^oropshift;
+				 total_board();
+			 }
+		 }
+		 else if(type='b'||type='B')
+		 {
+	           BPawns=BPawns^oroperand;
+	           BPawns=BPawns|oropshift;
+	      	   if(BPawns|wboard!=0)            // Similar block for removing white piece
+			 {
+		          WPawns=WPawns^oropshift;
+				 total_board();
+			 }
+		 }
+	     
+      } 
+       
+     
+	      
 	
 	
 	
