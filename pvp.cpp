@@ -58,48 +58,57 @@ class cboard
 	   //Number of shifting positions will vary with the pawn taken 
                 int index1=(rank1-1)*8 + (file1-96);//ascii of a is 97
 		int index2=(rank2-1)*8 + (file2-96);
+		u64 oroperand=pieces[index1];
+		u64 oropshift=pieces[index2];
 		 if(type='w' || type='W')
 		 {	if((rank1==2 && rank2 >4 || rank2-rank1 > 1 )&& ((file1-file2!=0)&&Wpawns|bboard==0))
-		{ cout<<"Invalid move"<<endl;
-		   return 0;
-		}
+			{ 	
+			   cout<<"Invalid move"<<endl;
+		   	   return 0;
+			}
+		       else
+		       {
+	           		WPawns= WPawns^oroperand;
+		   		WPawns= WPawns|oropshift;
+				 if(WPawns|bboard!=0)       //If a black piece is removed this block removes that piece from the bitboard
+				 {
+		          		BPawns=BPawns^oropshift;
+				 	total_board();
+			 	}
+		 	}
 		 }
 		 else if(type='b' || type='B')
-		 { if((rank1=7 && rank2<5 || rank1-rank2 >1 ) && ((file1-file2!=0)&&Bpawns|wboard==0))
-		   {	 cout<<"Invalid move"<<endl;
-	                  return 0;
-		   }
-		 }
+		 { 
+			 if((rank1=7 && rank2<5 || rank1-rank2 >1 ) && ((file1-file2!=0)&&Bpawns|wboard==0))
+		   		{	 cout<<"Invalid move"<<endl;
+	                		  return 0;
+		   		}
+		     	else 
+		 		{
+	        	   		BPawns=BPawns^oroperand;
+	        	   		BPawns=BPawns|oropshift;
+	      	   			if(BPawns|wboard!=0)            // Similar block for removing white piece
+			 		{
+		          		WPawns=WPawns^oropshift;
+				 	total_board();
+			 		}
+		               }
+	       	}
 		 else
 		 { cout<<"Invalid type "<<endl;
 		   return 1;
 		 }
+		
+	} 
+       
+    knight_moves(int rank1,char file1,int rank2,char file2,char type)
+    {
+	        int index1=(rank1-1)*8 + (file1-96);
+		int index2=(rank2-1)*8 + (file2-96);
 		u64 oroperand=pieces[index1];
 		u64 oropshift=pieces[index2];
-		 if(type='w'||type='W')
-		  {
-	           WPawns= WPawns^oroperand;
-		   WPawns= WPawns|oropshift;
-			 if(WPawns|bboard!=0)       //If a black piece is removed this block removes that piece from the bitboard
-			 {
-		          BPawns=BPawns^oropshift;
-				 total_board();
-			 }
-		 }
-		 else if(type='b'||type='B')
-		 {
-	           BPawns=BPawns^oroperand;
-	           BPawns=BPawns|oropshift;
-	      	   if(BPawns|wboard!=0)            // Similar block for removing white piece
-			 {
-		          WPawns=WPawns^oropshift;
-				 total_board();
-			 }
-		 }
-	     
-      } 
-       
-     
+	    
+    }
 	      
 	
 	
