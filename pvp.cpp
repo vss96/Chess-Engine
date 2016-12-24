@@ -107,15 +107,40 @@ class cboard
 		int index2=(rank2-1)*8 + (file2-96) -1;
 		u64 oroperand=pieces[index1];
 		u64 oropshift=pieces[index2];
-	     switch(type)
-	     {
-		     case w:
-		     case W: if(
-			     
-    }
-	      
-	
-	
+	switch(type)
+	{
+		case w :
+		case W :  	if((abs(rank1-rank2)!=1 && abs(file1-file2)!=2 ) || (abs(rank1-rank2)!=2 && abs(file1-file2)!=1) ||wboard|oropshift==0)
+	           		cout<<"Invalid move"<<endl;
+	         	 	else 
+	         	 	 {
+	           			WPawns=WPawns^oroperand;
+	           			WPawns=WPawns|oropshift;
+	           			if(oropshift|bboard!=0)
+					{
+	           			BPawns=BPawns^oropshift;
+	           			total_board();
+					}
+			  	 }
+		       break;
+	      case b :
+	      case B :	        if((abs(rank1-rank2)!=1 && abs(file1-file2)!=2 ) || (abs(rank1-rank2)!=2 && abs(file1-file2)!=1) ||bboard|oropshift==0)
+	           	        cout<<"Invalid move"<<endl;
+	         	        else 
+	          	         {
+	           			BPawns=BPawns^oroperand;
+	           			BPawns=BPawns|oropshift;
+	           			if(oropshift|wboard!=0)
+					{	
+					WPawns=WPawns^oropshift;
+	           			total_board();
+					}
+		        }
+		      break;
+	    default : cout<<"Invalid Type "<<endl;
+		      cout<<"Try again "<<endl;
+	}
+}  
 	
 };
 
