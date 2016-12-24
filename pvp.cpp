@@ -56,12 +56,12 @@ class cboard
 	 pawn_moves(int rank1,char file1,int rank2,char file2,char type)
 	{
 	   //Number of shifting positions will vary with the pawn taken 
-                int index1=(rank1-1)*8 + (file1-96);//ascii of a is 97
-		int index2=(rank2-1)*8 + (file2-96);
+                int index1=(rank1-1)*8 + (file1-96) -1;//ascii of a is 97
+		int index2=(rank2-1)*8 + (file2-96) -1;
 		u64 oroperand=pieces[index1];
 		u64 oropshift=pieces[index2];
 		 if(type='w' || type='W')
-		 {	if((rank1==2 && rank2 >4 || rank2-rank1 > 1 )&& ((file1-file2!=0)&&Wpawns|bboard==0))
+		 {	if((rank1==2 && rank2 >4 || rank2-rank1 > 1 )&& ((file1-file2!=0)&&oropshift|bboard==0))
 			{ 	
 			   cout<<"Invalid move"<<endl;
 		   	   return 0;
@@ -79,7 +79,7 @@ class cboard
 		 }
 		 else if(type='b' || type='B')
 		 { 
-			 if((rank1=7 && rank2<5 || rank1-rank2 >1 ) && ((file1-file2!=0)&&Bpawns|wboard==0))
+			 if((rank1=7 && rank2<5 || rank1-rank2 >1 ) && ((file1-file2!=0)&&oropshift|wboard==0))
 		   		{	 cout<<"Invalid move"<<endl;
 	                		  return 0;
 		   		}
@@ -103,11 +103,15 @@ class cboard
        
     knight_moves(int rank1,char file1,int rank2,char file2,char type)
     {
-	        int index1=(rank1-1)*8 + (file1-96);
-		int index2=(rank2-1)*8 + (file2-96);
+	        int index1=(rank1-1)*8 + (file1-96) -1;
+		int index2=(rank2-1)*8 + (file2-96) -1;
 		u64 oroperand=pieces[index1];
 		u64 oropshift=pieces[index2];
-	    
+	     switch(type)
+	     {
+		     case w:
+		     case W: if(
+			     
     }
 	      
 	
