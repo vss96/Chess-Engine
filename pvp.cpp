@@ -122,7 +122,7 @@ class cboard
 	           			total_board();
 					}
 			  	 }
-		       break;
+		      		 break;
 	      case b :
 	      case B :	        if((abs(rank1-rank2)!=1 && abs(file1-file2)!=2 ) || (abs(rank1-rank2)!=2 && abs(file1-file2)!=1) ||bboard|oropshift==0)
 	           	        cout<<"Invalid move"<<endl;
@@ -135,8 +135,8 @@ class cboard
 					WPawns=WPawns^oropshift;
 	           			total_board();
 					}
-		        }
-		      break;
+		       		 }
+		     		 break;
 	    default : cout<<"Invalid Type "<<endl;
 		      cout<<"Try again "<<endl;
 	}
