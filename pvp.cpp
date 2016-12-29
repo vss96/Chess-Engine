@@ -141,6 +141,16 @@ class cboard
 		      cout<<"Try again "<<endl;
 	}
 }  
+   bishop_moves(int rank1,char file1,int rank2,char file2,char type)
+   {
+        	int index1=(rank1-1)*8 + (file1-96) -1;
+		int index2=(rank2-1)*8 + (file2-96) -1;
+		u64 oroperand=pieces[index1];
+		u64 oropshift=pieces[index2];
+	   switch(type)
+	   {
+		   case w :
+		   case W : 
 	
 };
 
