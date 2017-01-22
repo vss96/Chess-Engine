@@ -147,13 +147,100 @@ class cboard
 		int index2=(rank2-1)*8 + (file2-96) -1;
 		u64 oroperand=pieces[index1];
 		u64 oropshift=pieces[index2];
+	   		u64 bopar=0000000000000000000000000000000000000000000000000000000000000000;  //Convert this. Keeping it in this format for now for understanding
+
 	   switch(type)
 	   {
-		   case w :
-		   case W : 
-	
-};
+		     case w :
+		   case W :
+{
 
+if((file1-file2=0) || abs(rank1-rank2)!=abs(file1-file2))
+{
+cout<<"Invalid move"<<endl;
+ return 0;
+}
+if(file2>file1 && rank2>rank1)
+{
+if(rank2-rank1=x)
+{
+bopar=bopar>>9*x; 
+}
+WBishops=WBishops|bopar;
+} 	
+if(file2>file1 && rank2<rank1)
+{
+if(abs(rank2-rank1=x))
+{
+bopar=bopar>>9*x; 
+}
+WBishops=WBishops|bopar;
+}
+if(file2<file1 && rank2>rank1)
+{
+if(abs(rank2-rank1=x))
+{
+bopar=bopar<<9*x; 
+}
+WBishops=WBishops|bopar;
+} 	
+else {
+ if(abs(rank2-rank1=x))
+{
+bopar=bopar>>9*x; 
+}
+WBishops=WBishops|bopar;
+}
+total_board();	
+
+
+		   case b :
+		   case B :
+
+{
+
+
+if((file1-file2=0) || abs(rank1-rank2)!=abs(file1-file2))
+{
+cout<<"Invalid move"<<endl;
+ return 0;
+}
+if(file2>file1 && rank2>rank1)
+{
+if(rank2-rank1=x)
+{
+bopar=bopar>>9*x; 
+}
+BBishops=BBishops|bopar;
+} 	
+if(file2>file1 && rank2<rank1)
+{
+if(abs(rank2-rank1=x))
+{
+bopar=bopar>>9*x; 
+}
+BBishops=BBishops|bopar;
+}
+if(file2<file1 && rank2>rank1)
+{
+if(abs(rank2-rank1=x))
+{
+bopar=bopar<<9*x; 
+}
+BBishops=BBishops|bopar;
+} 	
+else {
+ if(abs(rank2-rank1=x))
+{
+bopar=bopar>>9*x; 
+}
+BBishops=BBishops|bopar;
+}	
+
+total_board();
+}
+
+};
 int main()
 {
 
