@@ -153,7 +153,7 @@ class cboard
 	   {
 		     case w :
 		   case W :
-{
+
 
 if((file1-file2=0) || abs(rank1-rank2)!=abs(file1-file2))
 {
@@ -192,13 +192,10 @@ bopar=bopar>>9*x;
 WBishops=WBishops|bopar;
 }
 total_board();	
-
+break;
 
 		   case b :
 		   case B :
-
-{
-
 
 if((file1-file2=0) || abs(rank1-rank2)!=abs(file1-file2))
 {
@@ -238,6 +235,8 @@ BBishops=BBishops|bopar;
 }	
 
 total_board();
+  break;
+			   default : cout<<"Invalid type"<<endl;
 }
 	
 	
