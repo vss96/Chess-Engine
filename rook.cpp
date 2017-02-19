@@ -65,7 +65,9 @@ break;
 }
 }
 
-
+		case 'B': 
+		case 'b':
+			
 
 
 
