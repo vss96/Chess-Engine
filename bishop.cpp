@@ -16,7 +16,7 @@ int index1=(rank1-1)*8 + (file1-96) -1;
 				   while(a!=b)
 				   {
 					 a=a>>9;
-					 if(a|tboard!=0)
+					 if(a&tboard!=0)
 					 {
 					    cout<<"Invalid move"<<endl;
 				        	break;
@@ -28,7 +28,7 @@ int index1=(rank1-1)*8 + (file1-96) -1;
 				     while(a!=b)
 					 { 
 					  a=a<<7;
-					  if(a|tboard!=0)
+					  if(a&tboard!=0)
 					    {
 						 cout<<"Invalid move"<<endl;
 						 break;
@@ -47,7 +47,7 @@ int index1=(rank1-1)*8 + (file1-96) -1;
 				 while(a!=b)
 				 {
 				   a=a>>7  ;
-				  if(a|tboard!=0)
+				  if(a&tboard!=0)
 				   {
 				    cout<<"Invalid move"<<endl;
 				    break;
@@ -59,7 +59,7 @@ int index1=(rank1-1)*8 + (file1-96) -1;
 	          		   while(a!=b)
 				   {
 					   a=a<<9  ;
-					   if(a|tboard!=0)
+					   if(a&tboard!=0)
 					   {
 					     cout<<"Invalid move"<<endl;
 				             break;
