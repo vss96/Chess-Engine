@@ -114,11 +114,11 @@ class cboard
 	           		cout<<"Invalid move"<<endl;
 	         	 	else 
 	         	 	 {
-	           			WPawns=WPawns^oroperand;
-	           			WPawns=WPawns|oropshift;
+	           			WKnights=WKnights^oroperand;
+	           			WKnights=WKnights|oropshift;
 	           			if(oropshift|bboard!=0)
 					{
-	           			BPawns=BPawns^oropshift;
+	           			BKnights=BKnights^oropshift;
 	           			total_board();
 					}
 			  	 }
@@ -128,8 +128,8 @@ class cboard
 	           	        cout<<"Invalid move"<<endl;
 	         	        else 
 	          	         {
-	           			BPawns=BPawns^oroperand;
-	           			BPawns=BPawns|oropshift;
+	           			BKnights=BKnights^oroperand;
+	           			BKnights=BKnights|oropshift;
 	           			if(oropshift|wboard!=0)
 					{	
 					WPawns=WPawns^oropshift;
@@ -240,7 +240,7 @@ total_board();
 }
 	
 	
-	
+	/*
 	rook_moves(int rank1,char file1,int rank2,char file2,char type)
 {
 
@@ -1019,6 +1019,7 @@ total_board();
 }
 }
 }
+*/
 
 
 };
