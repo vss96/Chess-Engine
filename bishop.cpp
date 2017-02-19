@@ -10,52 +10,78 @@ int index1=(rank1-1)*8 + (file1-96) -1;
     case 'w':
     case 'W':  
 		           if(file1<file2)
-							 {
-							  if(rank1<rank2)
-							  {
-							   while(a!=b)
-							   {
-							    a=a>>9;
-							    if(a|tboard!=0)
-									 {
-									  cout<<"Invalid move"<<endl;
-								   	break;
-								   }
-							 	}
-								else if(rank1>rank2)
-								{
-								 while(a!=b)
-								 { 
-								  a=a<<7;
-							   	if(a|tboard!=0)
-								   {
-								    cout<<"Invalid move"<<endl;
-								    break;
-							     }
-								 }
-							else
-							{
-							cout<<"Invalid move"<<endl;
-							}
-							}
-							else if(file1>file2)
-							{
-							  if(rank1>rank2)
-								{
-								 while(a!=b)
-								 {
-								   a=a   ;
-									  if(a|tboard!=0)
-										 {
-										  cout<<"Invalid move"<<endl;
-											break;
-											}
-									}
-								}
-								 else if(rank1<rank2)
-									{
-								  
-								
+			  {
+				if(rank1<rank2)
+				 {
+				   while(a!=b)
+				   {
+					 a=a>>9;
+					 if(a|tboard!=0)
+					 {
+					    cout<<"Invalid move"<<endl;
+				        	break;
+					  }
+				   }
+				}
+				else if(rank1>rank2)
+				  {
+				     while(a!=b)
+					 { 
+					  a=a<<7;
+					  if(a|tboard!=0)
+					    {
+						 cout<<"Invalid move"<<endl;
+						 break;
+					    }
+					 }
+				  }
+				else
+				{
+				cout<<"Invalid move"<<endl;
+				}
+			  }
+	      		else if(file1>file2)
+			{
+				if(rank1>rank2)
+				{
+				 while(a!=b)
+				 {
+				   a=a>>7  ;
+				  if(a|tboard!=0)
+				   {
+				    cout<<"Invalid move"<<endl;
+				    break;
+			       	   }
+				 }
+				}
+				 else if(rank1<rank2)
+ 		        	 {
+	          		   while(a!=b)
+				   {
+					   a=a<<9  ;
+					   if(a|tboard!=0)
+					   {
+					     cout<<"Invalid move"<<endl;
+				             break;
+					   }
+				   }
+				 }
+				else 
+			   	{
+		          	 cout<<"Invalid move"<<endl;
+				}
+			}
+		    else
+		    {
+			    cout<<"Invalid move"<<endl;
+		    }
+                break;
+		 
+	    case 'b' :
+	    case 'B' :
+		        if(file1>file2)
+			
+                                    								
 								
              
     
