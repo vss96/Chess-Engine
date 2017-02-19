@@ -258,7 +258,7 @@ total_board();
 		case W : 
 if(rank2>rank1 && file 1!=file2 || rank2<rank1 && file1!=file2)
 {
-cout<<"Invalid Move"<<endl;
+cout<<"Invalid Move"<<endl; 
 }
 
 //Horizontal Moves: Bruteforce so super long
