@@ -109,8 +109,8 @@ class cboard
 		u64 oropshift=pieces[index2];
 	switch(type)
 	{
-		case w :
-		case W :  	if((abs(rank1-rank2)!=1 && abs(file1-file2)!=2 ) || (abs(rank1-rank2)!=2 && abs(file1-file2)!=1) ||wboard|oropshift==0)
+		case 'w' :
+		case 'W' :  	if((abs(rank1-rank2)!=1 && abs(file1-file2)!=2 ) || (abs(rank1-rank2)!=2 && abs(file1-file2)!=1) ||wboard|oropshift==0)
 	           		cout<<"Invalid move"<<endl;
 	         	 	else 
 	         	 	 {
@@ -123,8 +123,8 @@ class cboard
 					}
 			  	 }
 		      		 break;
-	      case b :
-	      case B :	        if((abs(rank1-rank2)!=1 && abs(file1-file2)!=2 ) || (abs(rank1-rank2)!=2 && abs(file1-file2)!=1) ||bboard|oropshift==0)
+	      case 'b' :
+	      case 'B' :	        if((abs(rank1-rank2)!=1 && abs(file1-file2)!=2 ) || (abs(rank1-rank2)!=2 && abs(file1-file2)!=1) ||bboard|oropshift==0)
 	           	        cout<<"Invalid move"<<endl;
 	         	        else 
 	          	         {
@@ -147,12 +147,12 @@ class cboard
 		int index2=(rank2-1)*8 + (file2-96) -1;
 		u64 oroperand=pieces[index1];
 		u64 oropshift=pieces[index2];
-	   		u64 bopar=0000000000000000000000000000000000000000000000000000000000000000;  //Convert this. Keeping it in this format for now for understanding
+	   		u64 bopar=0;  //Convert this. Keeping it in this format for now for understanding
 
 	   switch(type)
 	   {
-		     case w :
-		   case W :
+		     case 'w' :
+		   case 'W' :
 
 
 if((file1-file2=0) || abs(rank1-rank2)!=abs(file1-file2))
@@ -194,8 +194,8 @@ WBishops=WBishops|bopar;
 total_board();	
 break;
 
-		   case b :
-		   case B :
+		   case 'b' :
+		   case 'B' :
 
 if((file1-file2=0) || abs(rank1-rank2)!=abs(file1-file2))
 {
@@ -636,8 +636,8 @@ total_board();
 }
 }
 
-		case b:
-		case B : 
+		case 'b':
+		case 'B': 
 if(rank2>rank1 && file 1!=file2 || rank2<rank1 && file1!=file2)
 {
 cout<<"Invalid Move"<<endl;
