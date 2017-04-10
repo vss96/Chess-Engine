@@ -19,27 +19,31 @@ test=1;
 }
 if(test==0)
 {
-if (file1==file2)
-{
-if(rank2>rank1)
-{
-while(a!=b)
-{
-a=a>>8;
- if(a&tboard==0)
-{
-cout<<"Invalid move"<<endl;
-break;
-} 
-else if(rank2<rank1)
-while(a!=b)
-{
-a=a<<8;
- if(a&tboard==0)
-{
-cout<<"Invalid move"<<endl;
-break;
-} }}}}
+	if (file1==file2)
+	{
+		if(rank2>rank1)
+		while(a!=b)
+		{
+			a=a>>8;
+			 if(a&tboard==0)
+			{
+			cout<<"Invalid move"<<endl;
+			break;
+			} 
+		}
+	else if(rank2<rank1)
+	while(a!=b)
+	{
+	a=a<<8;
+ 	if(a&tboard==0)
+	{
+	cout<<"Invalid move"<<endl;
+	break;
+	} 
+	}
+		}
+	}
+}
 
 
 if(rank1==rank2)
