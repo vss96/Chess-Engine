@@ -70,11 +70,12 @@ class cboard
 		       {
 	           		WPawns= WPawns^oroperand;
 		   		WPawns= WPawns|oropshift;
-				 if(WPawns|bboard!=0)       //If a black piece is removed this block removes that piece from the bitboard
+				 if(oropshift&bboard==1)       //If a black piece is removed this block removes that piece from the bitboard
 				 {
 		          		BPawns=BPawns^oropshift;
-				 	total_board();
+				 	
 			 	}
+			       total_board();
 		 	}
 		 }
 		 else if(type='b' || type='B')
@@ -87,11 +88,12 @@ class cboard
 		 		{
 	        	   		BPawns=BPawns^oroperand;
 	        	   		BPawns=BPawns|oropshift;
-	      	   			if(BPawns|wboard!=0)            // Similar block for removing white piece
+	      	   			if(oropshift&wboard==1)            // Similar block for removing white piece
 			 		{
 		          		WPawns=WPawns^oropshift;
-				 	total_board();
+				 	
 			 		}
+				total_board();
 		               }
 	       	}
 		 else
@@ -116,11 +118,12 @@ class cboard
 	         	 	 {
 	           			WKnights=WKnights^oroperand;
 	           			WKnights=WKnights|oropshift;
-	           			if(oropshift|bboard!=0)
+	           			if(oropshift&bboard==1)
 					{
 	           			BKnights=BKnights^oropshift;
-	           			total_board();
+	           			
 					}
+					total_board();
 			  	 }
 		      		 break;
 	      case 'b' :
@@ -130,11 +133,12 @@ class cboard
 	          	         {
 	           			BKnights=BKnights^oroperand;
 	           			BKnights=BKnights|oropshift;
-	           			if(oropshift|wboard!=0)
+	           			if(oropshift&wboard==1)
 					{	
 					WPawns=WPawns^oropshift;
-	           			total_board();
+	           			
 					}
+					total_board();
 		       		 }
 		     		 break;
 	    default : cout<<"Invalid Type "<<endl;
