@@ -36,8 +36,8 @@ if(test==0)
 			break;
 			}
 	else {
-		c=a>>8*(rank2-rank1)
-		WRooks=WRooks|a;
+		c=a>>8*(rank2-rank1);
+		WRooks=WRooks|c;
 		remove(WRooks,a);  //Basically removing elements of a from the bitboard		
 	}
 
@@ -55,7 +55,7 @@ if(test==0)
 	}
 
 else {
-		c=a>>8*abs((rank2-rank1));
+		c=c>>8*abs((rank2-rank1));
 		WRooks=WRooks|c;
 		remove(WRooks,a);
 	
