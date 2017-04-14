@@ -244,786 +244,128 @@ total_board();
 }
 	
 	
-	/*
 	rook_moves(int rank1,char file1,int rank2,char file2,char type)
 {
-
-        int index1=(rank1-1)*8 + (file1-96) -1;
-		int index2=(rank2-1)*8 + (file2-96) -1;
-		u64 oroperand=pieces[index1];
-		u64 oropshift=pieces[index2];
-		u64 temp;
-		u64 temp2;
-		u64 x=abs(rank2-rank1);
-		switch(type)
+ int index1=(rank1-1)*8 + (file1-96) -1;//ascii of a is 97
+int index2=(rank2-1)*8 + (file2-96) -1;
+u64 oroperand=pieces[index1];
+u64 oropshift=pieces[index2];
+int test;
+u64 a;
+u64 c=a; 
+	switch(type)
 	{
-		
-		case w :
-		case W : 
-if(rank2>rank1 && file 1!=file2 || rank2<rank1 && file1!=file2)
-{
-cout<<"Invalid Move"<<endl; 
-}
-
-//Horizontal Moves: Bruteforce so super long
-if(rank1==rank2)
-{
-if(file1==a && file2==b)
-{
-temp=WRooks>>1;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==a && file2==c)
-{
-temp=WRooks>>2;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==a && file2==d)
-{
-temp=WRooks>>3;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==a && file2==e)
-{
-temp=WRooks>>4;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==a && file2==f)
-{
-temp=WRooks>>5;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==a && file2==g)
-{
-temp=WRooks>>6;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==a && file2==h)
-{
-temp=WRooks>>7;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==b && file2==a)
-{
-temp=WRooks<<1;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==b && file2==c)
-{
-temp=WRooks>>1;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==b && file2==d)
-{
-temp=WRooks>>2;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==b && file2==e)
-{
-temp=WRooks>>3;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==b && file2==f)
-{
-temp=WRooks>>4;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==b && file2==g)
-{
-temp=WRooks>>5;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==b && file2==h)
-{
-temp=WRooks>>6;
-WRooks=WRooks^temp; 
-total_board();
-}
+		case 'w':
+		case 'W':
 
 
-
-if(file1==c && file2==a)
-{
-temp=WRooks<<2;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==c && file2==b)
-{
-temp=WRooks<<1;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==c && file2==d)
-{
-temp=WRooks>>1;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==c && file2==e)
-{
-temp=WRooks>>2;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==c && file2==f)
-{
-temp=WRooks>>3;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==c && file2==g)
-{
-temp=WRooks>>4;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==c && file2==h)
-{
-temp=WRooks>>5;
-WRooks=WRooks^temp; 
-total_board();
-}
-
-
-if(file1==d && file2==a)
-{
-temp=WRooks<<3;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==d && file2==b)
-{
-temp=WRooks<<2;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==d && file2==c)
-{
-temp=WRooks<<1;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==d && file2==e)
-{
-temp=WRooks>>1;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==d && file2==f)
-{
-temp=WRooks>>2;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==d && file2==g)
-{
-temp=WRooks>>3;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==d && file2==h)
-{
-temp=WRooks>>4;
-WRooks=WRooks^temp; 
-total_board();
-}
-
-
-
-
-
-if(file1==e && file2==a)
-{
-temp=WRooks<<4;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==e && file2==b)
-{
-temp=WRooks<<3;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==e && file2==c)
-{
-temp=WRooks<<2;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==3 && file2==d)
-{
-temp=WRooks<<1;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==e && file2==f)
-{
-temp=WRooks>>1;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==e && file2==g)
-{
-temp=WRooks>>2;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==e && file2==h)
-{
-temp=WRooks>>3;
-WRooks=WRooks^temp; 
-total_board();
-}
-
-
-if(file1==f && file2==a)
-{
-temp=WRooks<<5;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==f && file2==b)
-{
-temp=WRooks<<4;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==f && file2==c)
-{
-temp=WRooks<<3;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==f && file2==d)
-{
-temp=WRooks<<2;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==f && file2==e)
-{
-temp=WRooks<<1;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==f && file2==g)
-{
-temp=WRooks>>1;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==f && file2==h)
-{
-temp=WRooks>>2;
-WRooks=WRooks^temp; 
-total_board();
-}
-
-
-
-
-if(file1==g && file2==a)
-{
-temp=WRooks<<6;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==g && file2==b)
-{
-temp=WRooks<<5;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==g && file2==c)
-{
-temp=WRooks<<4;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==g && file2==d)
-{
-temp=WRooks<<3;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==g && file2==e)
-{
-temp=WRooks<<2;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==g && file2==f)
-{
-temp=WRooks<<1;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==g && file2==h)
-{
-temp=WRooks>>1;
-WRooks=WRooks^temp; 
-total_board();
-}
-
-if(file1==h && file2==a)
-{
-temp=WRooks<<7;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==h && file2==b)
-{
-temp=WRooks<<6;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==h && file2==c)
-{
-temp=WRooks<<5;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==h && file2==d)
-{
-temp=WRooks<<4;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==h && file2==e)
-{
-temp=WRooks<<3;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==h && file2==f)
-{
-temp=WRooks<<2;
-WRooks=WRooks^temp; 
-total_board();
-}
-if(file1==h && file2==g)
-{
-temp=WRooks<<1;
-WRooks=WRooks^temp; 
-total_board();
-}
-}
-
-//Vertical moves 
-if(file1==file2)
-{
-if(rank2>rank1)
-{
-temp2=WRooks>>8*x;
-WRooks=WRooks^temp2;
-total_board();
-}
-if(rank1>rank2)
-{
-temp2=WRooks<<8*x;
-WRooks=WRooks^temp2;
-total_board();
-}
-}
-
-		case 'b':
-		case 'B': 
-if(rank2>rank1 && file 1!=file2 || rank2<rank1 && file1!=file2)
+//Piece Illegal Move
+if(file2!=file1) && (rank1!=rank2)
 {
 cout<<"Invalid Move"<<endl;
+test=1; 
+}
+			
+		
+			
+if(test==0)
+{
+	if (file1==file2)
+	{
+		if(rank2>rank1)
+		while(a!=b)
+		{
+			a=a>>8;
+			 if(a&tboard==0)
+			{
+			cout<<"Invalid move"<<endl;
+			break;
+			}
+	else {
+		c=a>>8*(rank2-rank1);
+		WRooks=WRooks|c;
+		remove2(WRooks,a);  //Basically removing elements of a from the bitboard		
+	}
+
+
+			
+		}
+	else if(rank2<rank1)
+	while(a!=b)
+	{
+	a=a<<8;
+ 	if(a&tboard==0)
+	{
+	cout<<"Invalid move"<<endl;
+	break;
+	}
+
+else {
+		c=c<<8*abs((rank2-rank1));
+		WRooks=WRooks|c;
+		remove2(WRooks,a);
+	
+}
+		
+	}
+
+	
+	}
+		}
+	}
 }
 
-//Horizontal Moves: Bruteforce, so super long
+
 if(rank1==rank2)
 {
-if(file1==a && file2==b)
+if(file1>file2) 
 {
-temp=BRooks>>1;
-BRooks=BRooks^temp; 
-total_board();
+a=a<<(file1-file2); 
+if(a&tboard==0)
+{
+cout<<"Invalid move"<<endl;
+break;
 }
-if(file1==a && file2==c)
-{
-temp=BRooks>>2;
-BRooks=BRooks^temp; 
-total_board();
+	else	{
+		c=c<<abs((file1-file2));
+		WRooks=WRooks|c;
+		remove2(WRooks,a);	
+	}
+	
+	
 }
-if(file1==a && file2==d)
+else if(file2>file1)
+ {
+a=a>>(file2-file1); 
+if(a&tboard==0)
 {
-temp=BRooks>>3;
-BRooks=BRooks^temp; 
-total_board();
+cout<<"Invalid move"<<endl;
+break;
+} 
+	else	{
+		c=c>>abs((file1-file2));
+		WRooks=WRooks|c;
+		remove2(WRooks,a);
+	}
+	
+	
 }
-if(file1==a && file2==e)
-{
-temp=BRooks>>4;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==a && file2==f)
-{
-temp=BRooks>>5;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==a && file2==g)
-{
-temp=BRooks>>6;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==a && file2==h)
-{
-temp=BRooks>>7;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==b && file2==a)
-{
-temp=BRooks<<1;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==b && file2==c)
-{
-temp=BRooks>>1;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==b && file2==d)
-{
-temp=BRooks>>2;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==b && file2==e)
-{
-temp=BRooks>>3;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==b && file2==f)
-{
-temp=BRooks>>4;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==b && file2==g)
-{
-temp=BRooks>>5;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==b && file2==h)
-{
-temp=BRooks>>6;
-BRooks=BRooks^temp; 
-total_board();
 }
 
 
-
-if(file1==c && file2==a)
-{
-temp=BRooks<<2;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==c && file2==b)
-{
-temp=BRooks<<1;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==c && file2==d)
-{
-temp=BRooks>>1;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==c && file2==e)
-{
-temp=BRooks>>2;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==c && file2==f)
-{
-temp=BRooks>>3;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==c && file2==g)
-{
-temp=BRooks>>4;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==c && file2==h)
-{
-temp=BRooks>>5;
-BRooks=BRooks^temp; 
-total_board();
-}
-
-
-if(file1==d && file2==a)
-{
-temp=BRooks<<3;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==d && file2==b)
-{
-temp=BRooks<<2;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==d && file2==c)
-{
-temp=BRooks<<1;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==d && file2==e)
-{
-temp=BRooks>>1;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==d && file2==f)
-{
-temp=BRooks>>2;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==d && file2==g)
-{
-temp=BRooks>>3;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==d && file2==h)
-{
-temp=BRooks>>4;
-BRooks=BRooks^temp; 
-total_board();
-}
+		case 'B': 
+		case 'b':
+			
 
 
 
 
 
-if(file1==e && file2==a)
-{
-temp=BRooks<<4;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==e && file2==b)
-{
-temp=BRooks<<3;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==e && file2==c)
-{
-temp=BRooks<<2;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==3 && file2==d)
-{
-temp=BRooks<<1;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==e && file2==f)
-{
-temp=BRooks>>1;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==e && file2==g)
-{
-temp=BRooks>>2;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==e && file2==h)
-{
-temp=BRooks>>3;
-BRooks=BRooks^temp; 
-total_board();
-}
-
-
-if(file1==f && file2==a)
-{
-temp=BRooks<<5;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==f && file2==b)
-{
-temp=BRooks<<4;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==f && file2==c)
-{
-temp=BRooks<<3;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==f && file2==d)
-{
-temp=BRooks<<2;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==f && file2==e)
-{
-temp=BRooks<<1;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==f && file2==g)
-{
-temp=BRooks>>1;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==f && file2==h)
-{
-temp=BRooks>>2;
-BRooks=BRooks^temp; 
-total_board();
-}
 
 
 
 
-if(file1==g && file2==a)
-{
-temp=BRooks<<6;
-BRooks=BRooks^temp; 
-total_board();
 }
-if(file1==g && file2==b)
-{
-temp=BRooks<<5;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==g && file2==c)
-{
-temp=BRooks<<4;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==g && file2==d)
-{
-temp=BRooks<<3;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==g && file2==e)
-{
-temp=BRooks<<2;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==g && file2==f)
-{
-temp=BRooks<<1;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==g && file2==h)
-{
-temp=BRooks>>1;
-BRooks=BRooks^temp; 
-total_board();
-}
-
-if(file1==h && file2==a)
-{
-temp=BRooks<<7;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==h && file2==b)
-{
-temp=BRooks<<6;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==h && file2==c)
-{
-temp=BRooks<<5;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==h && file2==d)
-{
-temp=BRooks<<4;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==h && file2==e)
-{
-temp=BRooks<<3;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==h && file2==f)
-{
-temp=BRooks<<2;
-BRooks=BRooks^temp; 
-total_board();
-}
-if(file1==h && file2==g)
-{
-temp=BRooks<<1;
-BRooks=BRooks^temp; 
-total_board();
-}
-}
-
-//Vertical moves 
-if(file1==file2)
-{
-if(rank2>rank1)
-{
-temp2=BRooks>>8*x;
-BRooks=BRooks^temp2;
-total_board();
-}
-if(rank1>rank2)
-{
-temp2=BRooks<<8*x;
-BRooks=BRooks^temp2;
-total_board();
-}
-}
-}
-}
-*/
 
 
 };
