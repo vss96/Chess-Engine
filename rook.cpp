@@ -38,7 +38,7 @@ if(test==0)
 	else {
 		c=a>>8*(rank2-rank1);
 		WRooks=WRooks|c;
-		remove(WRooks,a);  //Basically removing elements of a from the bitboard		
+		remove2(WRooks,a);  //Basically removing elements of a from the bitboard		
 	}
 
 
@@ -55,9 +55,9 @@ if(test==0)
 	}
 
 else {
-		c=c>>8*abs((rank2-rank1));
+		c=c<<8*abs((rank2-rank1));
 		WRooks=WRooks|c;
-		remove(WRooks,a);
+		remove2(WRooks,a);
 	
 }
 		
@@ -79,7 +79,14 @@ if(a&tboard==0)
 {
 cout<<"Invalid move"<<endl;
 break;
-} 
+}
+	else	{
+		c=c<<abs((file1-file2));
+		WRooks=WRooks|c;
+		remove2(WRooks,a);	
+	}
+	
+	
 }
 else if(file2>file1)
  {
@@ -89,6 +96,13 @@ if(a&tboard==0)
 cout<<"Invalid move"<<endl;
 break;
 } 
+	else	{
+		c=c>>abs((file1-file2));
+		WRooks=WRooks|c;
+		remove2(WRooks,a);
+	}
+	
+	
 }
 }
 }
