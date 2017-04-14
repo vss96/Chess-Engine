@@ -4,7 +4,9 @@ rook_moves(int rank1,char file1,int rank2,char file2,char type)
 int index2=(rank2-1)*8 + (file2-96) -1;
 u64 oroperand=pieces[index1];
 u64 oropshift=pieces[index2];
-int test=0;
+int test;
+u64 a;
+u64 c=a; 
 	switch(type)
 	{
 		case 'w':
@@ -32,7 +34,15 @@ if(test==0)
 			{
 			cout<<"Invalid move"<<endl;
 			break;
-			} 
+			}
+	else {
+		c=a>>8*(rank2-rank1)
+		WRooks=WRooks|a;
+		remove(WRooks,a);  //Basically removing elements of a from the bitboard	of rooks	
+	}
+
+
+			
 		}
 	else if(rank2<rank1)
 	while(a!=b)
@@ -42,7 +52,16 @@ if(test==0)
 	{
 	cout<<"Invalid move"<<endl;
 	break;
-	} 
+	}
+
+	if(a==b)
+	{
+		WRooks=WRooks&c;
+		
+		
+	}
+
+	
 	}
 		}
 	}
