@@ -5,7 +5,7 @@ void remove2(u64 &a, u64 &b)
 u64 temp=a&b;
 temp=~temp;
 a=temp;
-
+tboard+=a;
 
 return;
 
