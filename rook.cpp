@@ -12,11 +12,14 @@ int test=0;
 
 
 //Piece Illegal Move
-if((file2!=file1) || (rank1!=rank2))
+if(file2!=file1) && (rank1!=rank2)
 {
 cout<<"Invalid Move"<<endl;
 test=1; 
 }
+			
+		
+			
 if(test==0)
 {
 	if (file1==file2)
