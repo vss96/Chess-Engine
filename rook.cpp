@@ -2,10 +2,10 @@ rook_moves(int rank1,char file1,int rank2,char file2,char type)
 {
  int index1=(rank1-1)*8 + (file1-96) -1;//ascii of a is 97
 int index2=(rank2-1)*8 + (file2-96) -1;
-u64 oroperand=pieces[index1];
-u64 oropshift=pieces[index2];
+u64 a=pieces[index1];
+u64 b=pieces[index2];
 int test;
-u64 a;
+//u64 a;
 u64 c=a; 
 	switch(type)
 	{
