@@ -27,7 +27,7 @@ u64 c=a;
 			     {
 				WBishops=WBishops^c;
 				WBishops=WBishops|a;
-				    if(a&bboard==1)
+				    if(a&bboard==a)
 				    {
 					    remove(a,1);
 				    }
