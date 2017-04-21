@@ -356,6 +356,98 @@ break;
 		case 'B': 
 		case 'b':
 			
+//Piece Illegal Move
+if(file2!=file1) && (rank1!=rank2)
+{
+cout<<"Invalid Move"<<endl;
+test=1; 
+}
+			
+		
+			
+if(test==0)
+{
+	if (file1==file2)
+	{
+		if(rank2>rank1)
+		while(a!=b)
+		{
+			a=a>>8;
+			 if(a&tboard==0)
+			{
+			cout<<"Invalid move"<<endl;
+			break;
+			}
+	else {
+		c=a>>8*abs((rank2-rank1));
+		BRooks=BRooks|c;
+		remove2(BRooks,a);  //Basically removing elements of a from the bitboard		
+	}
+
+
+			
+		}
+	else if(rank2<rank1)
+	while(a!=b)
+	{
+	a=a<<8;
+ 	if(a&tboard==0)
+	{
+	cout<<"Invalid move"<<endl;
+	break;
+	}
+
+else {
+		c=c<<8*abs((rank2-rank1));
+		BRooks=BRooks|c;
+		remove2(BRooks,a);
+	
+}
+		
+	}
+
+	
+	}
+		}
+	}
+}
+
+
+if(rank1==rank2)
+{
+if(file1>file2) 
+{
+a=a<<(file1-file2); 
+if(a&tboard==0)
+{
+cout<<"Invalid move"<<endl;
+break;
+}
+	else	{
+		c=c<<abs((file1-file2));
+		BRooks=BRooks|c;
+		remove2(BRooks,a);	
+	}
+	
+	
+}
+else if(file2>file1)
+ {
+a=a>>(file2-file1); 
+if(a&tboard==0)
+{
+cout<<"Invalid move"<<endl;
+break;
+} 
+	else	{
+		c=c>>abs((file1-file2));
+		BRooks=BRooks|c;
+		remove2(BRooks,a);
+	}
+	
+	
+}
+}
 
 
 
