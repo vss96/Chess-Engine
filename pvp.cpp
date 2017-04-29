@@ -145,104 +145,213 @@ class cboard
 		      cout<<"Try again "<<endl;
 	}
 }  
-   bishop_moves(int rank1,char file1,int rank2,char file2,char type)
-   {
-        	int index1=(rank1-1)*8 + (file1-96) -1;
-		int index2=(rank2-1)*8 + (file2-96) -1;
-		u64 oroperand=pieces[index1];
-		u64 oropshift=pieces[index2];
-	   		u64 bopar=0;  //Convert this. Keeping it in this format for now for understanding
-
-	   switch(type)
-	   {
-		     case 'w' :
-		   case 'W' :
-
-
-if((file1-file2=0) || abs(rank1-rank2)!=abs(file1-file2))
+ bishop_moves( int rank1,char file1,int rank2,char file2,char type)
 {
-cout<<"Invalid move"<<endl;
- return 0;
-}
-if(file2>file1 && rank2>rank1)
-{
-if(rank2-rank1=x)
-{
-bopar=bopar>>9*x; 
-}
-WBishops=WBishops|bopar;
-} 	
-if(file2>file1 && rank2<rank1)
-{
-if(abs(rank2-rank1=x))
-{
-bopar=bopar>>9*x; 
-}
-WBishops=WBishops|bopar;
-}
-if(file2<file1 && rank2>rank1)
-{
-if(abs(rank2-rank1=x))
-{
-bopar=bopar<<9*x; 
-}
-WBishops=WBishops|bopar;
-} 	
-else {
- if(abs(rank2-rank1=x))
-{
-bopar=bopar>>9*x; 
-}
-WBishops=WBishops|bopar;
-}
-total_board();	
-break;
-
-		   case 'b' :
-		   case 'B' :
-
-if((file1-file2=0) || abs(rank1-rank2)!=abs(file1-file2))
-{
-cout<<"Invalid move"<<endl;
- return 0;
-}
-if(file2>file1 && rank2>rank1)
-{
-if(rank2-rank1=x)
-{
-bopar=bopar>>9*x; 
-}
-BBishops=BBishops|bopar;
-} 	
-if(file2>file1 && rank2<rank1)
-{
-if(abs(rank2-rank1=x))
-{
-bopar=bopar>>9*x; 
-}
-BBishops=BBishops|bopar;
-}
-if(file2<file1 && rank2>rank1)
-{
-if(abs(rank2-rank1=x))
-{
-bopar=bopar<<9*x; 
-}
-BBishops=BBishops|bopar;
-} 	
-else {
- if(abs(rank2-rank1=x))
-{
-bopar=bopar>>9*x; 
-}
-BBishops=BBishops|bopar;
-}	
-
-total_board();
-  break;
-			   default : cout<<"Invalid type"<<endl;
-}
-	
+int index1=(rank1-1)*8 + (file1-96) -1;
+int index2=(rank2-1)*8 + (file2-96) -1;
+u64 a=pieces[index1];
+u64 b=pieces[index2];
+u64 c=a;
+    
+    switch(type)
+    {
+    case 'w':
+    case 'W':  
+		   if(file1<file2)
+		     {
+			if(rank1<rank2)
+			  {
+			    while(a!=b)
+			     {
+			      a=a>>9;
+		              if(a&tboard!=0)
+				 {
+			           cout<<"Invalid move"<<endl;
+			     	   break;
+			         }
+			     }
+			    if(a==b)
+			     {
+				WBishops=WBishops^c;
+				WBishops=WBishops|a;
+				    if(a&bboard==a)
+				    {
+					    remove(a,1);
+				    }
+			        total_board();
+			     }
+			  }
+				else if(rank1>rank2)
+				  {
+				     while(a!=b)
+					 { 
+					  a=a<<7;
+					  if(a&tboard!=0)
+					    {
+						 cout<<"Invalid move"<<endl;
+						 break;
+					    }
+					 }
+					if(a==b)
+					{
+						WBishops=WBishops^c;
+						WBishops=WBishops|a;
+						if(a&bboard==1)
+						{
+							remove(a,1);
+						}
+					}
+			           }
+				else
+				{
+				cout<<"Invalid move"<<endl;
+				}
+			  }
+	      		else if(file1>file2)
+			{
+				if(rank1>rank2)
+				{
+				 while(a!=b)
+				 {
+				   a=a>>7  ;
+				  if(a&tboard!=0)
+				   {
+				    cout<<"Invalid move"<<endl;
+				    break;
+			       	   }
+				 }
+					if(a==b)
+					{
+				}
+				 else if(rank1<rank2)
+ 		        	 {
+	          		   while(a!=b)
+				   {
+					   a=a<<9  ;
+					   if(a&tboard!=0)
+					   {
+					     cout<<"Invalid move"<<endl;
+				             break;
+					   }
+				   }
+				 }
+				else 
+			   	{
+		          	 cout<<"Invalid move"<<endl;
+				}
+			}
+		    else
+		    {
+			    cout<<"Invalid move"<<endl;
+		    }
+                break;
+		 
+	    case 'b' :
+	    case 'B' :
+		        if(file1<file2)
+		     {
+			if(rank1<rank2)
+			  {
+			    while(a!=b)
+			     {
+			      a=a>>9;
+		              if(a&tboard!=0)
+				 {
+			           cout<<"Invalid move"<<endl;
+			     	   break;
+			         }
+			     }
+			    if(a==b)
+			     {
+				BBishops=BBishops^c;
+				BBishops=BBishops|a;
+				    if(a&wboard==a)
+				    {
+					    remove(a,0);
+				    }
+			        total_board();
+			     }
+			  }
+				else if(rank1>rank2)
+				  {
+				     while(a!=b)
+					 { 
+					  a=a<<7;
+					  if(a&tboard!=0)
+					    {
+						 cout<<"Invalid move"<<endl;
+						 break;
+					    }
+					 }
+					if(a==b)
+					{
+						BBishops=BBishops^c;
+						BBishops=BBishops|a;
+						if(a&wboard==1)
+						{
+							remove(a,0);
+						}
+				  }
+				}
+				else
+				{
+				cout<<"Invalid move"<<endl;
+				}
+			  }
+	      		else if(file1>file2)
+			{
+				if(rank1>rank2)
+				{
+				 while(a!=b)
+				 {
+				   a=a>>7  ;
+				  if(a&tboard!=0)
+				   {
+				    cout<<"Invalid move"<<endl;
+				    break;
+			       	   }
+				 }
+					if(a==b)
+					{
+						BBishops=BBishops^c;
+						BBishops=BBishops|a;
+						if(a&wboard==1)
+						{
+							remove(a,0);
+						}
+					}
+				}
+				 else if(rank1<rank2)
+ 		        	 {
+	          		   while(a!=b)
+				   {
+					   a=a<<9  ;
+					   if(a&tboard!=0)
+					   {
+					     cout<<"Invalid move"<<endl;
+				             break;
+					   }
+				   }
+					 if(a==b)
+					{
+						BBishops=BBishops^c;
+						BBishops=BBishops|a;
+						if(a&wboard==1)
+						{
+							remove(a,0);
+						}
+				  	}
+				 }
+				else 
+			   	{
+		          	 cout<<"Invalid move"<<endl;
+				}
+			}
+		   
+                                break;
+				default: cout<<"Invalid color"<<endl;
+			}       
+    }
 	
 	rook_moves(int rank1,char file1,int rank2,char file2,char type)
 {
