@@ -53,7 +53,8 @@ u64 c=a;
 						{
 							remove(a,1);
 						}
-				  }
+					}
+			           }
 				else
 				{
 				cout<<"Invalid move"<<endl;
@@ -100,9 +101,109 @@ u64 c=a;
 		 
 	    case 'b' :
 	    case 'B' :
-		        if(file1>file2)
-			
-                                    								
+		        if(file1<file2)
+		     {
+			if(rank1<rank2)
+			  {
+			    while(a!=b)
+			     {
+			      a=a>>9;
+		              if(a&tboard!=0)
+				 {
+			           cout<<"Invalid move"<<endl;
+			     	   break;
+			         }
+			     }
+			    if(a==b)
+			     {
+				BBishops=BBishops^c;
+				BBishops=BBishops|a;
+				    if(a&wboard==a)
+				    {
+					    remove(a,0);
+				    }
+			        total_board();
+			     }
+			  }
+				else if(rank1>rank2)
+				  {
+				     while(a!=b)
+					 { 
+					  a=a<<7;
+					  if(a&tboard!=0)
+					    {
+						 cout<<"Invalid move"<<endl;
+						 break;
+					    }
+					 }
+					if(a==b)
+					{
+						BBishops=BBishops^c;
+						BBishops=BBishops|a;
+						if(a&wboard==1)
+						{
+							remove(a,0);
+						}
+				  }
+				}
+				else
+				{
+				cout<<"Invalid move"<<endl;
+				}
+			  }
+	      		else if(file1>file2)
+			{
+				if(rank1>rank2)
+				{
+				 while(a!=b)
+				 {
+				   a=a>>7  ;
+				  if(a&tboard!=0)
+				   {
+				    cout<<"Invalid move"<<endl;
+				    break;
+			       	   }
+				 }
+					if(a==b)
+					{
+						BBishops=BBishops^c;
+						BBishops=BBishops|a;
+						if(a&wboard==1)
+						{
+							remove(a,0);
+						}
+					}
+				}
+				 else if(rank1<rank2)
+ 		        	 {
+	          		   while(a!=b)
+				   {
+					   a=a<<9  ;
+					   if(a&tboard!=0)
+					   {
+					     cout<<"Invalid move"<<endl;
+				             break;
+					   }
+				   }
+					 if(a==b)
+					{
+						BBishops=BBishops^c;
+						BBishops=BBishops|a;
+						if(a&wboard==1)
+						{
+							remove(a,0);
+						}
+				  	}
+				 }
+				else 
+			   	{
+		          	 cout<<"Invalid move"<<endl;
+				}
+			}
+		   
+                                break;
+				default: cout<<"Invalid color"<<endl;
+			}                                								
 								
              
     
