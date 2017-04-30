@@ -54,7 +54,7 @@ class cboard
 		tboard=wboard|bboard;
 	}
 	
-	 pawn_moves(int rank1,char file1,int rank2,char file2,char type)
+	 pawn_moves(char file1,int rank1,char file2,int rank2,char type)
 	{
 	   //Number of shifting positions will vary with the pawn taken 
                 int index1=(rank1-1)*8 + (file1-96) -1;//ascii of a is 97
@@ -104,7 +104,7 @@ class cboard
 		
 	} 
        
-    knight_moves(int rank1,char file1,int rank2,char file2,char type)
+    knight_moves(char file1,int rank,char file2,int rank2,char type)
     {
 	        int index1=(rank1-1)*8 + (file1-96) -1;
 		int index2=(rank2-1)*8 + (file2-96) -1;
@@ -119,9 +119,9 @@ class cboard
 	         	 	 {
 	           			WKnights=WKnights^oroperand;
 	           			WKnights=WKnights|oropshift;
-	           			if(oropshift&bboard==1)
+	           			if(oropshift&bboard!=0)
 					{
-	           			BKnights=BKnights^oropshift;
+	           			remove(oropshift,1);
 	           			
 					}
 					total_board();
@@ -136,7 +136,7 @@ class cboard
 	           			BKnights=BKnights|oropshift;
 	           			if(oropshift&wboard==1)
 					{	
-					WPawns=WPawns^oropshift;
+					remove(oropshift,0);
 	           			
 					}
 					total_board();
@@ -146,7 +146,7 @@ class cboard
 		      cout<<"Try again "<<endl;
 	}
 }  
- bishop_moves( int rank1,char file1,int rank2,char file2,char type)
+ bishop_moves( char file1,int rank1,char file2,int rank2,char type)
 {
 int index1=(rank1-1)*8 + (file1-96) -1;
 int index2=(rank2-1)*8 + (file2-96) -1;
@@ -354,7 +354,7 @@ u64 c=a;
 			}       
     }
 	
-	rook_moves(int rank1,char file1,int rank2,char file2,char type)
+rook_moves(char file1,int rank1,char file2,int rank2,char type)
 {
  int index1=(rank1-1)*8 + (file1-96) -1;//ascii of a is 97
 int index2=(rank2-1)*8 + (file2-96) -1;
