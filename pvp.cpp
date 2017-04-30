@@ -1,4 +1,5 @@
 #include<iostream>
+#include<math.h>
 using namespace std;
 typedef unsigned long long u64;
 class cboard
@@ -60,7 +61,7 @@ class cboard
 		int index2=(rank2-1)*8 + (file2-96) -1;
 		u64 oroperand=pieces[index1];
 		u64 oropshift=pieces[index2];
-		 if(type='w' || type='W')
+		 if(type=='w' || type=='W')
 		 {	if((rank1==2 && rank2 >4 || rank2-rank1 > 1 )&& ((file1-file2!=0)&&oropshift|bboard==0))
 			{ 	
 			   cout<<"Invalid move"<<endl;
@@ -78,7 +79,7 @@ class cboard
 			       total_board();
 		 	}
 		 }
-		 else if(type='b' || type='B')
+		 else if(type=='b' || type=='B')
 		 { 
 			 if((rank1=7 && rank2<5 || rank1-rank2 >1 ) && ((file1-file2!=0)&&oropshift|wboard==0))
 		   		{	 cout<<"Invalid move"<<endl;
