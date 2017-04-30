@@ -62,7 +62,7 @@ class cboard
 		u64 oroperand=pieces[index1];
 		u64 oropshift=pieces[index2];
 		 if(type=='w' || type=='W')
-		 {	if((rank1==2 && rank2 >4 || rank2-rank1 > 1 )&& ((file1-file2!=0)&&oropshift|bboard==0))
+		 {	if((rank1==2 && rank2 >4 || rank2-rank1 > 1 )||((file1-file2!=0)&&oropshift|bboard==0))
 			{ 	
 			   cout<<"Invalid move"<<endl;
 		   	   return 0;
