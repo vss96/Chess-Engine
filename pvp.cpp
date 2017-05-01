@@ -53,7 +53,48 @@ class cboard
 		bboard=BKnights|BPawns|BRooks|BBishops|BKing|BQueen;
 		tboard=wboard|bboard;
 	}
-	
+	remove(u64 a , int type)
+{
+switch(type)
+{
+case 0 :
+        if(a&WPawns!=0)
+        WPawns=WPawns^a;
+        else if(a&WBishops!=0)
+        WBishops=WBishops^a;
+        else if(a&WKnights!=0)
+        WKnights=WKnights^a;
+        else if(a&WRooks!=0)
+        WRooks=WRooks^a;
+        else if(a&WQueen!=0)
+        WQueen=WQueen^a;
+        else
+        {
+        cout<<"Game over,Black Wins"<<endl;
+         getch();
+          exit(0);
+          }
+        break;
+case 1 :
+	if(a&BPawns!=0)
+        BPawns=BPawns^a;
+        else if(a&BBishops!=0)
+        BBishops=BBishops^a;
+        else if(a&BKnights!=0)
+        BKnights=BKnights^a;
+        else if(a&BRooks!=0)
+        BRooks=BRooks^a;
+        else if(a&BQueen!=0)
+        BQueen=BQueen^a;
+        else
+        {  cout<<"Game over,White Wins"<<endl;
+          getch();
+          exit(0);
+          }
+          break;
+          }
+          total_board();
+          }
 	 pawn_moves(char file1,int rank1,char file2,int rank2,char type)
 	{
 	   //Number of shifting positions will vary with the pawn taken 
@@ -71,9 +112,9 @@ class cboard
 		       {
 	           		WPawns= WPawns^oroperand;
 		   		WPawns= WPawns|oropshift;
-				 if(oropshift&bboard==1)       //If a black piece is removed this block removes that piece from the bitboard
+				 if(oropshift&bboard!=0)       //If a black piece is removed this block removes that piece from the bitboard
 				 {
-		          		BPawns=BPawns^oropshift;
+		          	    remove(oropshift,1);
 				 	
 			 	}
 			       total_board();
@@ -91,7 +132,7 @@ class cboard
 	        	   		BPawns=BPawns|oropshift;
 	      	   			if(oropshift&wboard==1)            // Similar block for removing white piece
 			 		{
-		          		WPawns=WPawns^oropshift;
+		          	         remove(oropshift,0);
 				 	
 			 		}
 				total_board();
@@ -99,7 +140,7 @@ class cboard
 	       	}
 		 else
 		 { cout<<"Invalid type "<<endl;
-		   return 1;
+		   
 		 }
 		
 	} 
