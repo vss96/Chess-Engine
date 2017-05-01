@@ -1,5 +1,6 @@
 #include<iostream>
 #include<math.h>
+#include<conio.h>
 using namespace std;
 typedef unsigned long long u64;
 class cboard
@@ -145,7 +146,7 @@ case 1 :
 		
 	} 
        
-    knight_moves(char file1,int rank,char file2,int rank2,char type)
+    knight_moves(char file1,int rank1,char file2,int rank2,char type)
     {
 	        int index1=(rank1-1)*8 + (file1-96) -1;
 		int index2=(rank2-1)*8 + (file2-96) -1;
