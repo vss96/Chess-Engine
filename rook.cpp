@@ -32,18 +32,19 @@ if(test==0)
 			a=a>>8;
 			 if(a&tboard==0)
 			{
-			cout<<"Invalid move"<<endl;
+			cout<<"Invalid move"<<endl;  // this is for checking if pieces are in between
 			break;
 			}
-	else {
-		c=a>>8*(rank2-rank1);
-		WRooks=WRooks|c;
-		remove2(WRooks,a);  //Basically removing elements of a from the bitboard		
-	}
-
-
-			
 		}
+		if(a==b)
+		{
+		                                  //c=a>>8*(rank2-rank1); dont need this since a is already incremented in the previous while loop
+		WRooks=WRooks^c;
+		WRooks=WRooks|a;                       //see the change here 
+		if(a&bboard!=0)                         //only remove piece if u find a black piece there      
+		remove(a,1);
+		}
+	}
 	else if(rank2<rank1)
 	while(a!=b)
 	{
