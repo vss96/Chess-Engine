@@ -5,7 +5,7 @@ int index2=(rank2-1)*8 + (file2-96) -1;
 u64 a=pieces[index1];
 u64 b=pieces[index2];
 u64 c=a;
-    
+    if(abs(rank1-rank2)==abs(file1-file2))
     switch(type)
     {
     case 'w':
@@ -27,7 +27,7 @@ u64 c=a;
 			     {
 				WBishops=WBishops^c;
 				WBishops=WBishops|a;
-				    if(a&bboard==a)
+				    if(a&bboard!=0)
 				    {
 					    remove(a,1);
 				    }
@@ -49,7 +49,7 @@ u64 c=a;
 					{
 						WBishops=WBishops^c;
 						WBishops=WBishops|a;
-						if(a&bboard==1)
+						if(a&bboard!=0)
 						{
 							remove(a,1);
 						}
@@ -74,7 +74,15 @@ u64 c=a;
 			       	   }
 				 }
 					if(a==b)
-					{
+			    		 {
+						WBishops=WBishops^c;
+						WBishops=WBishops|a;
+				  		  if(a&bboard!=0)
+				   		 {
+					   	 remove(a,1);
+				  	 	 }
+			      		 	 total_board();
+					 }
 				}
 				 else if(rank1<rank2)
  		        	 {
@@ -87,6 +95,16 @@ u64 c=a;
 				             break;
 					   }
 				   }
+					 if(a==b)
+			    		 {
+						WBishops=WBishops^c;
+						WBishops=WBishops|a;
+				  		  if(a&bboard!=0)
+				   		 {
+					   	 remove(a,1);
+				  	 	 }
+			      		 	 total_board();
+					 }
 				 }
 				else 
 			   	{
@@ -99,8 +117,8 @@ u64 c=a;
 		    }
                 break;
 		 
-	    case 'b' :
-	    case 'B' :
+   case 'b' :
+   case 'B' :
 		        if(file1<file2)
 		     {
 			if(rank1<rank2)
@@ -118,7 +136,7 @@ u64 c=a;
 			     {
 				BBishops=BBishops^c;
 				BBishops=BBishops|a;
-				    if(a&wboard==a)
+				    if(a&wboard!=0)
 				    {
 					    remove(a,0);
 				    }
@@ -140,7 +158,7 @@ u64 c=a;
 					{
 						BBishops=BBishops^c;
 						BBishops=BBishops|a;
-						if(a&wboard==1)
+						if(a&wboard!=0)
 						{
 							remove(a,0);
 						}
@@ -168,7 +186,7 @@ u64 c=a;
 					{
 						BBishops=BBishops^c;
 						BBishops=BBishops|a;
-						if(a&wboard==1)
+						if(a&wboard!=0)
 						{
 							remove(a,0);
 						}
@@ -189,7 +207,7 @@ u64 c=a;
 					{
 						BBishops=BBishops^c;
 						BBishops=BBishops|a;
-						if(a&wboard==1)
+						if(a&wboard!=0)
 						{
 							remove(a,0);
 						}
@@ -200,10 +218,221 @@ u64 c=a;
 		          	 cout<<"Invalid move"<<endl;
 				}
 			}
+	case 'q' :
+				if(file1<file2)
+		    	 	{
+				if(rank1<rank2)
+			 	 {
+			  	  while(a!=b)
+			    	 {
+			     	 a=a>>9;
+		           	   if(a&tboard!=0)
+				 	{
+			           	cout<<"Invalid move"<<endl;
+			     	   	break;
+			        	 }
+			     	 }
+			   	 	if(a==b)
+			    		 {
+						WQueen=WQueen^c;
+						WQueen=WQueen|a;
+				  		  if(a&bboard!=0)
+				   		 {
+					   	 remove(a,1);
+				  	 	 }
+			      		 	 total_board();
+					 }
+			 	 }
+				else if(rank1>rank2)
+				  {
+				     while(a!=b)
+					 { 
+					  a=a<<7;
+					  if(a&tboard!=0)
+					    {
+						 cout<<"Invalid move"<<endl;
+						 break;
+					    }
+					 }
+					if(a==b)
+					{
+						WQueen=WQueen^c;
+						WQueen=WQueen|a;
+						if(a&bboard!=0)
+						{
+							remove(a,1);
+						}
+					}
+			           }
+				else
+				{
+				cout<<"Invalid move"<<endl;
+				}
+			  }
+	      		else if(file1>file2)
+			{
+				if(rank1>rank2)
+				{
+				 while(a!=b)
+				 {
+				   a=a>>7  ;
+				  if(a&tboard!=0)
+				   {
+				    cout<<"Invalid move"<<endl;
+				    break;
+			       	   }
+				 }
+					if(a==b)
+			    		 {
+						WQueen=WQueen^c;
+						WQueen=WQueen|a;
+				  		  if(a&bboard!=0)
+				   		 {
+					   	 remove(a,1);
+				  	 	 }
+			      		 	 total_board();
+					 }
+				 else if(rank1<rank2)
+ 		        	 {
+	          		   while(a!=b)
+				   {
+					   a=a<<9  ;
+					   if(a&tboard!=0)
+					   {
+					     cout<<"Invalid move"<<endl;
+				             break;
+					   }
+				   }
+					 if(a==b)
+			    		 {
+						WQueen=WQueen^c;
+						WQueen=WQueen|a;
+				  		  if(a&bboard!=0)
+				   		 {
+					   	 remove(a,1);
+				  	 	 }
+			      		 	 total_board();
+					 }
+				 }
+				else 
+			   	{
+		          	 cout<<"Invalid move"<<endl;
+				}
+			}
+		    else
+		    {
+			    cout<<"Invalid move"<<endl;
+		    }
+               	    break;
+         case 'Q' :
+				if(file1<file2)
+		    	 	{
+				if(rank1<rank2)
+			 	 {
+			  	  while(a!=b)
+			    	 {
+			     	 a=a>>9;
+		           	   if(a&tboard!=0)
+				 	{
+			           	cout<<"Invalid move"<<endl;
+			     	   	break;
+			        	 }
+			     	 }
+			   	 	if(a==b)
+			    		 {
+						BQueen=BQueen^c;
+						BQueen=BQueen|a;
+				  		  if(a&wboard!=0)
+				   		 {
+					   	 remove(a,0);
+				  	 	 }
+			      		 	 total_board();
+					 }
+			 	 }
+				else if(rank1>rank2)
+				  {
+				     while(a!=b)
+					 { 
+					  a=a<<7;
+					  if(a&tboard!=0)
+					    {
+						 cout<<"Invalid move"<<endl;
+						 break;
+					    }
+					 }
+					if(a==b)
+			    		 {
+						BQueen=BQueen^c;
+						BQueen=BQueen|a;
+				  		  if(a&wboard!=0)
+				   		 {
+					   	 remove(a,0);
+				  	 	 }
+			      		 	 total_board();
+					 }
+			           }
+				else
+				{
+				cout<<"Invalid move"<<endl;
+				}
+			  }
+	      		else if(file1>file2)
+			{
+				if(rank1>rank2)
+				{
+				 while(a!=b)
+				 {
+				   a=a>>7  ;
+				  if(a&tboard!=0)
+				   {
+				    cout<<"Invalid move"<<endl;
+				    break;
+			       	   }
+				 }
+					if(a==b)
+			    		 {
+						BQueen=BQueen^c;
+						BQueen=BQueen|a;
+				  		  if(a&wboard!=0)
+				   		 {
+					   	 remove(a,0);
+				  	 	 }
+			      		 	 total_board();
+					 }
+				 else if(rank1<rank2)
+ 		        	 {
+	          		   while(a!=b)
+				   {
+					   a=a<<9  ;
+					   if(a&tboard!=0)
+					   {
+					     cout<<"Invalid move"<<endl;
+				             break;
+					   }
+				   }
+					 if(a==b)
+			    		 {
+						BQueen=BQueen^c;
+						BQueen=BQueen|a;
+				  		  if(a&wboard!=0)
+				   		 {
+					   	 remove(a,0);
+				  	 	 }
+			      		 	 total_board();
+					 }
+				 }
+				else 
+			   	{
+		          	 cout<<"Invalid move"<<endl;
+				}
+			}
+		    else
+		    {
+			    cout<<"Invalid move"<<endl;
+		    }
+               	   break;
 		   
-                                break;
+
 				default: cout<<"Invalid color"<<endl;
 			}                                								
-								
-             
-    
+	}
