@@ -1,6 +1,7 @@
 #include<iostream>
 #include<math.h>
 #include<conio.h>
+#include<process.h>
 using namespace std;
 typedef unsigned long long u64;
 class cboard
@@ -54,28 +55,28 @@ class cboard
 		bboard=BKnights|BPawns|BRooks|BBishops|BKing|BQueen;
 		tboard=wboard|bboard;
 	}
-	remove(u64 a , int type)
+remove(u64 a , int type)
 {
-switch(type)
-{
-case 0 :
-        if(a&WPawns!=0)
-        WPawns=WPawns^a;
-        else if(a&WBishops!=0)
-        WBishops=WBishops^a;
-        else if(a&WKnights!=0)
-        WKnights=WKnights^a;
-        else if(a&WRooks!=0)
-        WRooks=WRooks^a;
-        else if(a&WQueen!=0)
-        WQueen=WQueen^a;
-        else
-        {
-        cout<<"Game over,Black Wins"<<endl;
-         getch();
-          exit(0);
-          }
-        break;
+	switch(type)
+	{
+	case 0 :
+        	if(a&WPawns!=0)
+       		 WPawns=WPawns^a;
+       		 else if(a&WBishops!=0)
+        	WBishops=WBishops^a;
+       		 else if(a&WKnights!=0)
+       		 WKnights=WKnights^a;
+      		  else if(a&WRooks!=0)
+       		 WRooks=WRooks^a;
+       		 else if(a&WQueen!=0)
+      		  WQueen=WQueen^a;
+        	else
+       		 {
+       		 cout<<"Game over,Black Wins"<<endl;
+       		  getch();
+          	exit(0);
+         	 }
+       		 break;
 case 1 :
 	if(a&BPawns!=0)
         BPawns=BPawns^a;
