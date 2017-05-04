@@ -291,6 +291,7 @@ u64 c=a;
 					   	 remove(a,1);
 				  	 	 }
 			      		 	 total_board();
+					 	}
 					 }
 				 else if(rank1<rank2)
  		        	 {
@@ -312,13 +313,15 @@ u64 c=a;
 					   	 remove(a,1);
 				  	 	 }
 			      		 	 total_board();
-					 }
+					 	}
 				 }
+			
 				else 
 			   	{
 		          	 cout<<"Invalid move"<<endl;
 				}
 			}
+		
 		    else
 		    {
 			    cout<<"Invalid move"<<endl;
@@ -377,7 +380,7 @@ u64 c=a;
 				}
 			  }
 	      		else if(file1>file2)
-			{
+				{
 				if(rank1>rank2)
 				{
 				 while(a!=b)
@@ -389,6 +392,7 @@ u64 c=a;
 				    break;
 			       	   }
 				 }
+			
 					if(a==b)
 			    		 {
 						BQueen=BQueen^c;
@@ -398,6 +402,7 @@ u64 c=a;
 					   	 remove(a,0);
 				  	 	 }
 			      		 	 total_board();
+					 	}
 					 }
 				 else if(rank1<rank2)
  		        	 {
