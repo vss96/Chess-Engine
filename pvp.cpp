@@ -55,68 +55,186 @@ class cboard
 		bboard=BKnights|BPawns|BRooks|BBishops|BKing|BQueen;
 		tboard=wboard|bboard;
 	}
-remove(u64 a , int type)
-{
-	switch(type)
+	check_piece(u64 a , char type,int p)
 	{
-	case 0 :
-        	if(a&WPawns!=0)
-       		 WPawns=WPawns^a;
-       		 else if(a&WBishops!=0)
-        	WBishops=WBishops^a;
-       		 else if(a&WKnights!=0)
-       		 WKnights=WKnights^a;
-      		  else if(a&WRooks!=0)
-       		 WRooks=WRooks^a;
-       		 else if(a&WQueen!=0)
-      		  WQueen=WQueen^a;
-        	else
-       		 {
-       		 cout<<"Game over,Black Wins"<<endl;
-       		  getch();
-          	exit(0);
-         	 }
-       		 break;
-case 1 :
-	if(a&BPawns!=0)
-        BPawns=BPawns^a;
-        else if(a&BBishops!=0)
-        BBishops=BBishops^a;
-        else if(a&BKnights!=0)
-        BKnights=BKnights^a;
-        else if(a&BRooks!=0)
-        BRooks=BRooks^a;
-        else if(a&BQueen!=0)
-        BQueen=BQueen^a;
-        else
-        {  cout<<"Game over,White Wins"<<endl;
-          getch();
-          exit(0);
-          }
-          break;
-          }
+		switch(type)
+		{
+			case 'w' :
+			case 'W' : 
+			           switch(p)
+				   {
+					   case 0 :
+						   if(a&WPawns==0)
+					   	    {
+						     cout<<"Given piece doesnt belong to pawn"<<endl;
+						     getch();
+						     exit(0);
+					   	    }
+						   break;
+					   case 1 :
+						   if(a&WKnights==0)
+					   	    {
+						      cout<<"Given piece doesnt belong to knight"<<endl;
+					              getch();
+					              exit(0);
+						   }
+						   break;
+					   case 2 :
+						   if(a&WBishops==0)
+						   {
+						       cout<<"Given piece doesnt belong to bishop"<<endl;
+						       getch();
+						       exit(0);
+						   }
+						   break;
+					   case 3 :
+						   if(a&WRooks==0)
+						   {
+						       cout<<"Given piece doesnt belong to rook"<<endl;
+						       getch();
+						       exit(0);
+						   }
+						   break;
+					   case 4 :
+						   if(a&WQueen==0)
+						   {
+						       cout<<"Given piece isnt a queen"<<endl;
+						       getch();
+						       exit(0);
+						   }
+						   break;
+					   case 5 :
+						   if(a&WKing==0)
+						   {
+						       cout<<"Given piece isnt a king"<<endl;
+						       getch();
+						       exit(0);
+						   }
+						   break;
+				        default : cout<<"Invalid entry value"<<endl
+				   }
+				break;
+			case 'b' :
+			case 'B' :
+				  switch(p)
+				   {
+					   case 0 :
+						   if(a&BPawns==0)
+					   	    {
+						     cout<<"Given piece doesnt belong to pawn"<<endl;
+						     getch();
+						     exit(0);
+					   	    }
+						   break;
+					   case 1 :
+						   if(a&BKnights==0)
+					   	    {
+						      cout<<"Given piece doesnt belong to knight"<<endl;
+					              getch();
+					              exit(0);
+						   }
+						   break;
+					   case 2 :
+						   if(a&BBishops==0)
+						   {
+						       cout<<"Given piece doesnt belong to bishop"<<endl;
+						       getch();
+						       exit(0);
+						   }
+						   break;
+					   case 3 :
+						   if(a&BRooks==0)
+						   {
+						       cout<<"Given piece doesnt belong to rook"<<endl;
+						       getch();
+						       exit(0);
+						   }
+						   break;
+					   case 4 :
+						   if(a&BQueen==0)
+						   {
+						       cout<<"Given piece isnt a queen"<<endl;
+						       getch();
+						       exit(0);
+						   }
+						   break;
+					   case 5 :
+						   if(a&BKing==0)
+						   {
+						       cout<<"Given piece isnt a king"<<endl;
+						       getch();
+						       exit(0);
+						   }
+						   break;
+				        default : cout<<"Invalid entry value"<<endl
+				   }
+				break;
+				default : cout<<"Invalid entry"<<endl;
+		}
+	}
+	remove(u64 a , int type)
+	{
+		switch(type)
+		{
+		case 0 :
+        		if(a&WPawns!=0)
+       		 	WPawns=WPawns^a;
+       		 	else if(a&WBishops!=0)
+        		WBishops=WBishops^a;
+       			 else if(a&WKnights!=0)
+       			 WKnights=WKnights^a;
+      		  	else if(a&WRooks!=0)
+       		 	WRooks=WRooks^a;
+       		 	else if(a&WQueen!=0)
+      		  	WQueen=WQueen^a;
+        		else
+       			 {
+       		 	cout<<"Game over,Black Wins"<<endl;
+       		  	getch();
+          		exit(0);
+         	 	}
+       			 break;
+	      case 1 :
+		       if(a&BPawns!=0)
+        		BPawns=BPawns^a;
+        		else if(a&BBishops!=0)
+        		BBishops=BBishops^a;
+        		else if(a&BKnights!=0)
+        		BKnights=BKnights^a;
+        		else if(a&BRooks!=0)
+        		BRooks=BRooks^a;
+        		else if(a&BQueen!=0)
+        		BQueen=BQueen^a;
+        		else
+        		{  cout<<"Game over,White Wins"<<endl;
+          		getch();
+          		exit(0);
+          		}
+          		break;
+          	}
           total_board();
           }
 	 pawn_moves(char file1,int rank1,char file2,int rank2,char type)
-	{
+	  {
 	   //Number of shifting positions will vary with the pawn taken 
                 int index1=(rank1-1)*8 + (file1-96) -1;//ascii of a is 97
 		int index2=(rank2-1)*8 + (file2-96) -1;
-		u64 oroperand=pieces[index1];
-		u64 oropshift=pieces[index2];
+		u64 a=pieces[index1];
+		u64 b=pieces[index2];
+		 check_piece(a,type,0);
 		 if(type=='w' || type=='W')
-		 {	if((rank1==2 && rank2 >4 && rank2-rank1 > 1 )||((file1-file2!=0)&&oropshift|bboard==0))
+		 {	if((rank1==2 && rank2 >4 && rank2-rank1 > 1 )||((file1-file2!=0)&&b|bboard==0))
 			{ 	
 			   cout<<"Invalid move"<<endl;
 		   	   return 0;
 			}
 		       else
 		       {
-	           		WPawns= WPawns^oroperand;
-		   		WPawns= WPawns|oropshift;
-				 if(oropshift&bboard!=0)       //If a black piece is removed this block removes that piece from the bitboard
+	           		WPawns= WPawns^a;
+		   		WPawns= WPawns|b;
+				 if(b&bboard!=0)       //If a black piece is removed this block removes that piece from the bitboard
 				 {
-		          	    remove(oropshift,1);
+		          	    remove(b,1);
 				 	
 			 	}
 			       total_board();
@@ -124,17 +242,17 @@ case 1 :
 		 }
 		 else if(type=='b' || type=='B')
 		 { 
-			 if((rank1=7 && rank2<5 && rank1-rank2 >1 ) && ((file1-file2!=0)&&oropshift|wboard==0))
+			 if((rank1=7 && rank2<5 && rank1-rank2 >1 ) && ((file1-file2!=0)&&b|wboard==0))
 		   		{	 cout<<"Invalid move"<<endl;
 	                		  return 0;
 		   		}
 		     	else 
 		 		{
-	        	   		BPawns=BPawns^oroperand;
-	        	   		BPawns=BPawns|oropshift;
-	      	   			if(oropshift&wboard==1)            // Similar block for removing white piece
+	        	   		BPawns=BPawns^a;
+	        	   		BPawns=BPawns|b;
+	      	   			if(b&wboard!=0)            // Similar block for removing white piece
 			 		{
-		          	         remove(oropshift,0);
+		          	         remove(b,0);
 				 	
 			 		}
 				total_board();
@@ -151,35 +269,36 @@ case 1 :
     {
 	        int index1=(rank1-1)*8 + (file1-96) -1;
 		int index2=(rank2-1)*8 + (file2-96) -1;
-		u64 oroperand=pieces[index1];
-		u64 oropshift=pieces[index2];
+		u64 a=pieces[index1];
+		u64 b=pieces[index2];
+	    check_piece(a,type,1);
 	switch(type)
 	{
 		case 'w' :
-		case 'W' :  	if((abs(rank1-rank2)!=1 && abs(file1-file2)!=2 ) || (abs(rank1-rank2)!=2 && abs(file1-file2)!=1) ||wboard|oropshift==0)
+		case 'W' :  	if((abs(rank1-rank2)!=1 && abs(file1-file2)!=2 ) || (abs(rank1-rank2)!=2 && abs(file1-file2)!=1) ||wboard|b==0)
 	           		cout<<"Invalid move"<<endl;
 	         	 	else 
 	         	 	 {
-	           			WKnights=WKnights^oroperand;
-	           			WKnights=WKnights|oropshift;
-	           			if(oropshift&bboard!=0)
+	           			WKnights=WKnights^a;
+	           			WKnights=WKnights|b;
+	           			if(b&bboard!=0)
 					{
-	           			remove(oropshift,1);
+	           			remove(b,1);
 	           			
 					}
 					total_board();
 			  	 }
 		      		 break;
 	      case 'b' :
-	      case 'B' :	        if((abs(rank1-rank2)!=1 && abs(file1-file2)!=2 ) || (abs(rank1-rank2)!=2 && abs(file1-file2)!=1) ||bboard|oropshift==0)
+	      case 'B' :	        if((abs(rank1-rank2)!=1 && abs(file1-file2)!=2 ) || (abs(rank1-rank2)!=2 && abs(file1-file2)!=1) ||bboard|b==0)
 	           	        cout<<"Invalid move"<<endl;
 	         	        else 
 	          	         {
-	           			BKnights=BKnights^oroperand;
-	           			BKnights=BKnights|oropshift;
-	           			if(oropshift&wboard==1)
+	           			BKnights=BKnights^a;
+	           			BKnights=BKnights|b;
+	           			if(b&wboard==1)
 					{	
-					remove(oropshift,0);
+					remove(b,0);
 	           			
 					}
 					total_board();
@@ -196,6 +315,7 @@ int index2=(rank2-1)*8 + (file2-96) -1;
 u64 a=pieces[index1];
 u64 b=pieces[index2];
 u64 c=a;
+	 check_piece(a,type,2);
     if(abs(rank1-rank2)==abs(file1-file2))
     switch(type)
     {
@@ -637,6 +757,7 @@ u64 b=pieces[index2];
 int test;
 //u64 a;
 u64 c=a; 
+	check_piece(a,type,3);
 	switch(type)
 	{
 		case 'w':
