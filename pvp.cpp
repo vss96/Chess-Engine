@@ -315,10 +315,6 @@ int index2=(rank2-1)*8 + (file2-96) -1;
 u64 a=pieces[index1];
 u64 b=pieces[index2];
 u64 c=a;
-	 if(type=='w'||type=='W')
-	check_piece(a,type,2);
-	 else
-	 check_piece(a,type,4);
     if(abs(rank1-rank2)==abs(file1-file2))
     switch(type)
     {
@@ -605,6 +601,7 @@ u64 c=a;
 					   	 remove(a,1);
 				  	 	 }
 			      		 	 total_board();
+					 	}
 					 }
 				 else if(rank1<rank2)
  		        	 {
@@ -626,13 +623,15 @@ u64 c=a;
 					   	 remove(a,1);
 				  	 	 }
 			      		 	 total_board();
-					 }
+					 	}
 				 }
+			
 				else 
 			   	{
 		          	 cout<<"Invalid move"<<endl;
 				}
 			}
+		
 		    else
 		    {
 			    cout<<"Invalid move"<<endl;
@@ -691,7 +690,7 @@ u64 c=a;
 				}
 			  }
 	      		else if(file1>file2)
-			{
+				{
 				if(rank1>rank2)
 				{
 				 while(a!=b)
@@ -703,6 +702,7 @@ u64 c=a;
 				    break;
 			       	   }
 				 }
+			
 					if(a==b)
 			    		 {
 						BQueen=BQueen^c;
@@ -712,6 +712,7 @@ u64 c=a;
 					   	 remove(a,0);
 				  	 	 }
 			      		 	 total_board();
+					 	}
 					 }
 				 else if(rank1<rank2)
  		        	 {
@@ -750,7 +751,6 @@ u64 c=a;
 				default: cout<<"Invalid color"<<endl;
 			}                                								
 	}
-	
 u64 rook_moves(char file1,int rank1,char file2,int rank2,char type)
 {
  int index1=(rank1-1)*8 + (file1-96) -1;//ascii of a is 97
