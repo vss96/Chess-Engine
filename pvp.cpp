@@ -751,7 +751,7 @@ u64 c=a;
 				default: cout<<"Invalid color"<<endl;
 			}                                								
 	}
-u64 rook_moves(char file1,int rank1,char file2,int rank2,char type)
+	u64 rook_moves(char file1,int rank1,char file2,int rank2,char type)
 {
  int index1=(rank1-1)*8 + (file1-96) -1;//ascii of a is 97
 int index2=(rank2-1)*8 + (file2-96) -1;
@@ -764,199 +764,103 @@ u64 c=a;
 	{
 		case 'w':
 		case 'W':
-
-
 //Piece Illegal Move
 if((file2!=file1) && (rank1!=rank2))
 {
 cout<<"Invalid Move"<<endl;
 test=1; 
 }
-			
-		
-			
 if(test==0)
 {
 	if (file1==file2)
 	{
 		if(rank2>rank1)
+		{
+		
 		while(a!=b)
 		{
-			a=a>>8*(rank2-rank1);
+			a=a>>8;
 			 if(a&tboard==0)
 			{
-			cout<<"Invalid move"<<endl;
+			cout<<"Invalid move"<<endl;  // this is for checking if pieces are in between
 			break;
 			}
-	else if(a==b) {
-		c=a;
-		WRooks=WRooks|c;
-		remove2(WRooks,a,tboard);  //Basically removing elements of a from the bitboard		
-	}
-
-
-			
 		}
-	else if(rank2<rank1)
-	while(a!=b)
-	{
-	a=a<<8*(rank2-rank1);
- 	if(a&tboard==0)
-	{
-	cout<<"Invalid move"<<endl;
-	break;
-	}
-
-else {
-		c=c<<8*abs((rank2-rank1));
-		WRooks=WRooks|c;
-		remove2(WRooks,a,tboard);
-	
-}
-		
-	}
-
-	
-}
-}
-	
-
-
-if(rank1==rank2 & file1>file2)
-{ 
-a=a<<(file1-file2); 
-if(a&tboard==0)
-{
-cout<<"Invalid move"<<endl;
-break;
-}
-	else	{
-		c=c<<abs((file1-file2));
-		WRooks=WRooks|c;
-		remove2(WRooks,a,tboard);	
-	}
-	
-	
-}
-else if(file2>file1)
- {
-a=a>>(file2-file1); 
-if(a&tboard==0)
-{
-cout<<"Invalid move"<<endl;
-break;
-} 
-	else	{
-		c=c>>abs((file1-file2));
-		WRooks=WRooks|c;
-		remove2(WRooks,a,tboard);
-	}
-	
-	
-}
-
-
-
-		case 'B': 
-		case 'b':
-			
-//Piece Illegal Move
-if((file2!=file1) && (rank1!=rank2))
-{
-cout<<"Invalid Move"<<endl;
-test=1; 
-}
-			
-		
-			
-if(test==0)
-{
-	if (file1==file2)
-	{
-		if(rank2>rank1)
-		while(a!=b)
+		if(a==b)
 		{
-			a=a>>8*(rank2-rank1);
-			 if(a&tboard==0)
-			{
-			cout<<"Invalid move"<<endl;
-			break;
-			}
-	else if(a==b) {
-		c=a>>8*abs((rank2-rank1));
-		BRooks=BRooks|c;
-		remove2(BRooks,a,tboard);  //Basically removing elements of a from the bitboard		
-	}
-
-
-			
+		                                  
+		WRooks=WRooks^c;
+		WRooks=WRooks|a;                       
+		if(a&bboard!=0)                         //only remove piece if u find a black piece there      
+		remove(a,1);
 		}
-	else if(rank2<rank1)
-	while(a!=b)
-	{
-	a=a<<8*(rank1-rank2);
- 	if(a&tboard==0)
-	{
-	cout<<"Invalid move"<<endl;
-	break;
+		}
+		else if(rank1>rank2)
+		{
+			while(a!=b)
+			{
+			a=a<<8;
+			if(a&tboard==0)
+			{
+				cout<<"Invalid move"<<endl;
+				break;
+			}
+			}
+			if(a==b)
+			{
+				WRooks=WRooks^c;
+				WRooks=WRooks|a;
+				if(a&bboard!=0)
+				remove(a,1);
+			}
+		}
 	}
-
-else if(a==b) {
-		c=c<<8*abs((rank2-rank1));
-		BRooks=BRooks|c;
-		remove2(BRooks,a,tboard);
-	
-}
-		
-	}
-	
-	}
-}
-
-
-
-if(rank1==rank2)
-{
-if(file1>file2) 
-{
-a=a<<(file1-file2); 
-if(a&tboard==0)
-{
-cout<<"Invalid move"<<endl;
-break;
-}
-	else if(a==b){
-		c=c<<abs((file1-file2));
-		BRooks=BRooks|c;
-		remove2(BRooks,a,tboard);	
-	}
-	
-	
-}
-else if(file2>file1)
- {
-a=a>>(file2-file1); 
-if(a&tboard==0)
-{
-cout<<"Invalid move"<<endl;
-break;
-} 
-	else if (a==b)	{
-		c=c>>abs((file1-file2));
-		BRooks=BRooks|c;
-		remove2(BRooks,a,tboard);
-	}
-	
-	
-}
-}
+	else if(rank1==rank2)
+	 {
+	 	if(file1>file2)
+	 	{
+	 		while(a!=b)
+	 		{
+	 			a=a>>1;
+	 			if(a&tboard==0)
+	 			{
+	 				cout<<"Invalid move"<<endl;
+	 				break;
+				 }
+			}
+			if(a==b)
+			{
+				WRooks=WRooks^c;
+				WRooks=WRooks|a;
+				if(a&bboard!=0)
+				remove(a,1);
+			}
+			}
+			else if(file1<file2)
+			{
+				while(a!=b)
+				{
+					a=a<<1;
+					if(a&tboard==0)
+					{
+						cout<<"Invalid move"<<endl;
+						break;
+					}
+				}
+				if(a==b)
+				{
+					WRooks=WRooks^c;
+					WRooks=WRooks|a;
+					if(a&bboard!=0)
+					remove(a,1);
+					
+				}
+			}
+			 }
+		 }
+	 }
 }
 
-
-
-
-
-}
 
 queen_moves(char file1,int rank1,char file2,int rank2,char type)
 {
