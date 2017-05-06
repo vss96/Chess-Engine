@@ -757,7 +757,7 @@ u64 c=a;
 int index2=(rank2-1)*8 + (file2-96) -1;
 u64 a=pieces[index1];
 u64 b=pieces[index2];
-int test;
+int test=0;
 //u64 a;
 u64 c=a; 
 	switch(type)
