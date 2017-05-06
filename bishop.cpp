@@ -1,3 +1,5 @@
+
+//individual module for the bishop move.
 bishop_moves( int rank1,char file1,int rank2,char file2,char type)
 {
 int index1=(rank1-1)*8 + (file1-96) -1;
