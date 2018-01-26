@@ -41,11 +41,11 @@ class cboard
   		BKing     =8;                  //0000000000000000000000000000000000000000000000000000000000001000
   		BQueen    =16;                 //0000000000000000000000000000000000000000000000000000000000010000
 		int i ;
-		u64 x;
+		u64 x=1;
 		for(i=0;i<64;i++)
 		{	
-	        x=pow(2,i);
 		pieces[63-i]=  x;  // Each index has a bitboard for piece (ie) a1 ,b1 , c1 and so on 
+		x*=2;
 	        }
 	}	
 	 total_board()
